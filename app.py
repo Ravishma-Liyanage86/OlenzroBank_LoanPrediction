@@ -13,10 +13,7 @@
 # def predict():
 #     name = request.args.get("name", "World")
 #     return render_template("index.html")       
-        
-# if __name__ == "__main__"  :
-#     app.run(debug=True)     
-#         save this as app.py-
+
 from flask import Flask, escape, request, render_template
 import pickle
 import numpy as np
