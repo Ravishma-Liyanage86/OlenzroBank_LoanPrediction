@@ -1,0 +1,24 @@
+.out-container {
+    border: 5px solid red;
+    width: 800px;
+    padding: 50px;
+    margin-top: 50px;
+    margin-left: 200px;
+
+}
+
+.p3 {
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.p1 {
+    font-family: "Times New Roman", Times, serif;
+
+}
+.vertical-center {
+
+margin : 0;
+position: absolute;
+
+left:48%;
+}

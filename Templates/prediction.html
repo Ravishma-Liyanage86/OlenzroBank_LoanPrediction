@@ -1,0 +1,252 @@
+<link rel="stylesheet" type="text/css" href="./prediction.css" />
+
+<!doctype html>
+<html lang="en">
+
+<head>
+
+
+
+
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+  <title>prediction</title>
+</head>
+
+<body>
+
+
+  <section class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="flex flex-col text-center w-full mb-20">
+
+        <div>
+          <style>
+            body {
+              background-color: rgb(11, 11, 10);
+            }
+
+            h1 {
+              color: rgb(61, 13, 235);
+              margin-left: 40px;
+              display: block;
+              font-size: 4em;
+            }
+
+            h2 {
+
+              margin-left: 40px;
+              display: block;
+              font-size: 2em;
+            }
+          </style>
+          <h1>Loan Prediction Project</h1>
+
+          <br>
+
+
+          <style>
+            h2 {
+              color: rgb(254, 253, 253);
+              margin-left: 40px;
+            }
+          </style>
+          <h2>Fill the following form for the Prediction</h2>
+        </div>
+        <br><br>
+
+
+        <style>
+          h3 {
+            color: rgb(10, 244, 33);
+            margin-left: 40px;
+          }
+
+          h4 {
+            color: rgb(242, 6, 22);
+            margin-left: 40px;
+          }
+        </style>
+        <h3><b>{{prediction_text}}</b></h3>
+        <script>  if (prediction == 0) {
+            ans = <h3><b>{{ prediction_text }}</b></h3>
+          } else {
+            ans = <h4><b>{{ prediction_text }}</b></h4>
+          }</script>
+
+      </div>
+      <div>
+
+      </div>
+      <a class="btn btn-primary" href="./" role="button">Back</a>
+
+
+      <form action='/predict' method='POST'>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Years of Employment</label>
+          <input type="number" class="form-control" id="emp_length_int" name="emp_length_int"
+            placeholder="Enter Years of Employment">
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Annual Income</label>
+          <input type="number" class="form-control" id="annual_inc" name="annual_inc" placeholder="Enter Annual Income">
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Loan Amount</label>
+          <input type="number" class="form-control" id="loan_amount" name="loan_amount" placeholder="Enter Loan Amount">
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Interest Rate</label>
+          <input type="number" class="form-control" id="interest_rate" name="interest_rate"
+            placeholder="Enter Interest Rate">
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Age</label>
+          <input type="number" class="form-control" id="age" name="age" placeholder="Enter your Age">
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">DTI</label>
+          <input type="number" class="form-control" id="dti" name="dti" placeholder="Enter DTI">
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Total Payment</label>
+          <input type="number" class="form-control" id="total_pymnt" name="total_pymnt"
+            placeholder="Enter Total Payment">
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Installment</label>
+          <input type="number" class="form-control" id="installment" name="installment" placeholder="Enter Installment">
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Home Ownership</label>
+          <select class="form-select" id="home_ownership" name="home_ownership" aria-label="Default select example">
+            <option selected>-- select Home Ownership --</option>
+            <option value="Mortgage">Mortgage</option>
+
+            <option value="Rent">Rent</option>
+            <option value="Own">Own</option>
+            <option value="None">None</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Income Category</label>
+          <select class="form-select" id="income_category" name="income_category" aria-label="Default select example">
+            <option selected>-- select Income Category --</option>
+            <option value="High">High</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Term</label>
+          <select class="form-select" id="term" name="term" aria-label="Default select example">
+            <option selected>-- select Term --</option>
+            <option value="36">36</option>
+            <option value="60">60</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Application Type</label>
+          <select class="form-select" id="application_type" name="application_type" aria-label="Default select example">
+            <option selected>-- select Application Type --</option>
+            <option value="Individual">Individual</option>
+            <option value="Joint">Joint</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Purpose</label>
+          <select class="form-select" id="purpose" name="purpose" aria-label="Default select example">
+            <option selected>-- select Purpose --</option>
+            <option value="Car">Car</option>
+            <option value="Credit card">Credit card</option>
+            <option value="Debt consolidation">Debt consolidation</option>
+            <option value="Educational">Educational</option>
+            <option value="Home improvement">Home improvement</option>
+            <option value="House">House</option>
+            <option value="Major purchase">Major purchase</option>
+            <option value="Medical">Medical</option>
+            <option value="Moving">Moving</option>
+            <option value="Other">Other</option>
+            <option value="Renewable energy">Renewable energy</option>
+            <option value="Small business">Small business</option>
+            <option value="Vacation">Vacation</option>
+            <option value="Wedding">Wedding</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Interest Payments</label>
+          <select class="form-select" id="interest_payments" name="interest_payments"
+            aria-label="Default select example">
+            <option selected>-- select Interest Payments --</option>
+            <option value="High">High</option>
+            <option value="Low">Low</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Grade</label>
+          <select class="form-select" id="grade" name="grade" aria-label="Default select example">
+            <option selected>-- select Grade --</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">E</option>
+            <option value="F">F</option>
+            <option value="G">G</option>
+          </select>
+        </div>
+
+
+
+
+        <div class="vertical-center">
+          <button type="submit" class="btn btn-danger">Predict</button>
+        </div>
+      </form>
+
+
+
+      <div>
+        <br>
+        <h3>Prediction : {{prediction_text}}</h3>
+        <h3>Accuracy : {{accuracy}}</h3>
+      </div>
+    </div>
+
+
+    </div>
+  </section>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+    crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
